@@ -1,0 +1,573 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 6px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    /* Sitede yer alan linlerin altında çizgi olmamasın için.*/
+}
+
+ul {
+    list-style-type: none;
+    /* Madde numaralarını seçmek için. Burada "NONE" ile kaldırdık. */
+}
+
+section {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    text-align: center;
+}
+
+.btn-large {
+    font-size: 2rem;
+    padding: 2.2rem 1.6rem;
+}
+
+.btn {
+    margin-top: 2rem;
+
+    padding: 2.2rem 1.6rem;
+    font-weight: 400;
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 0.4rem;
+
+    cursor: pointer;
+    /* Cursor : Mause istenilen yere geldiğinde oluşacak imleç seçeneklerini
+    belirlemek için kullanılır. */
+    transition: 0.4s;
+}
+
+.btn-outline {
+    color: #fff;
+    border-color: #fff;
+    background-color: transparent;
+
+}
+
+.btn-primary {
+    background-color: #1ABC9B;
+    border-color: #1ABC9B;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #128f76;
+    border-color: #128f76;
+    padding: 1.2rem 1rem;
+}
+
+.btn-outline:hover {
+    color: #212529;
+    background-color: white;
+}
+
+.btn-social {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.img-fluid {
+    max-width: 256px;
+    height: auto;
+}
+
+/* CLEAR Özelliği 
+
+    Float özelliğinin etkisinden kurtulmak için clear özelliğini kullanırız. 
+    Float uygulanmış etiketten sonra gelen etiketleride etkiler bu etkiden kurtulmak için clear özelliği kullanılır.
+    Clear özelliğini kullanmanın en yaygın yolu, bir etiket üzerinde float özelliğini kullandıktan sonradır.
+*/
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+
+}
+
+.container {
+    width: 100%;
+    /* Breakpointlerin doğru ayarlanması için bu kısımda width in 
+    100% olması gerek. */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.col {
+    float: left;
+    width: 100%;
+    padding: 1rem;
+}
+
+@media (min-width:576px) {
+
+    .container {
+        max-width: 540px;
+    }
+
+    html {
+        font-size: 7px;
+    }
+}
+
+@media (min-width:768px) {
+
+    .container {
+        max-width: 720px;
+    }
+
+    html {
+        font-size: 8px;
+    }
+
+    .col {
+        width: 50%;
+    }
+
+    /* Col classında yer alan resimleri her adımda değiştirmek zorunda değiliz.
+    Sayfanın boyutuna göre 1, 2 ve 3 olmak üzere 3 breakpoint oluşturduk. */
+}
+
+@media (min-width:992px) {
+
+    .container {
+        max-width: 960px;
+    }
+
+    html {
+        font-size: 9px;
+    }
+}
+
+@media (min-width:1200px) {
+
+    .container {
+        max-width: 1140px;
+    }
+
+    html {
+        font-size: 10px;
+    }
+
+    .col {
+        width: 33.33%;
+    }
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+    /* Tüm harfler büyük olması için. */
+}
+
+/* Navbar */
+
+nav {
+    font-family: 'Lato', sans-serif;
+    background-color: #2c3e4f;
+    color: #fff;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 500;
+    /* z-index özelliği css 'de nesnelerin hangisinin önde hangisinin arkada olduğuyla alakalıdır. 
+    Yani örneğimizde varsayılan olarak mavi kutu yeşil kutunun üstünde görünürken mavi kutu için 
+    z-index:-1; dediğimizden dolayı yeşil kutunun arkasına gider. Z-index sayısal olarak değer alır 
+    ve sayısal büyüklüğe göre ya arkaya ya da öne gelir. */
+}
+
+#logo-box {
+    float: left;
+    padding-top: 0.5rem;
+}
+
+#logo-box .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.8rem;
+}
+
+#nav-links {
+    float: right;
+}
+
+#nav-links .nav-item {
+    float: left;
+    margin: 1.2rem;
+}
+
+#nav-links .nav-link {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    display: block;
+    letter-spacing: 0.2rem;
+    transition: color 0.4s;
+    /* Ok ile linkin üzerine geldiğindeki değişikliklerin geçiş hızı.*/
+}
+
+#nav-links .nav-link:hover {
+    color: #1abc9b;
+}
+
+#nav-links .nav-icon {
+    display: none;
+}
+
+@media (max-width: 992px) {
+
+    #logo-box {
+        float: none;
+        text-align: left;
+    }
+
+    #nav-links {
+        float: none;
+    }
+
+    #nav-links .nav-link {
+        font-size: 2rem;
+        padding-left: 0;
+    }
+
+    #nav-links .nav-item {
+        float: none;
+        text-align: left;
+    }
+
+    #nav-links .nav-icon {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        font-size: 3rem;
+    }
+
+    #nav-links.responsive{
+
+    }
+    /* yukarıda kullanılan .responsive ifadesinin anlamı, #nav-links eğer responsive özelliklere 
+    sahipse aşağıdaki değişiklikler olsun demektir. */
+}
+
+/* HEADER */
+
+header {
+    background-color: #1ABC9B;
+    height: 700px;
+    /* İçindeki elamanlara göre kendisi oto olarak boyutunu ayarlasın şeklinde özellik atayacağız. */
+    padding-top: calc(106px + 7rem);
+    /* 106px nav barın pixel cinsinden boyutu. Yazılar nav barın altında kaldığı için 
+    boyutlandırma yaparken 106px -yazının başlayabileceği min değer- + istediğimiz boşluk miktarını belirtiyoruz.
+    Bunun için kullanılan fonksiyon ise:  calc( ) fonksiyonudur.
+    */
+    text-align: center;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 6rem;
+}
+
+header h2 {
+    color: #fff;
+    font-size: 2.4rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+hr.star-light {
+    border-color: #fff;
+}
+
+hr.star-dark {
+    border-color: #2d3d4f;
+}
+
+.star-light,
+.star-dark {
+    border: none;
+    border-top: 0.4rem solid;
+    max-width: 25rem;
+    border-radius: 10px;
+    margin: 2.5rem auto;
+    /* Css Margin, html nesnelerinin birbiri ile olan mesafelerini belirtir. sağ -sol auto olarak 
+    ayarlandığında, nesne ortalanmış olacaktır. */
+    overflow: visible;
+    /* overflow: visible | hidden | scroll | auto | initial | inherit 
+    
+    Visible :Varsayılan değer. İçerik kırpılmamış; öğenin kutusunun dışına çıkarılacak ve böylece diğer içeriklerle çakışabilecektir.
+    Hidden :Eleman kutusundan taşan içerik kırpılır ve içeriğin geri kalan kısmı görünmez olur.
+    Scroll :Taşan içerik tıpkı gizli gibi kırpılır, ancak taşan içeriğe erişmek için kaydırma mekanizması sağlar.
+    Auto :İçerik öğenin kutusundan taşıyorsa, içeriği geri kalanını görmek için kaydırma çubuklarını otomatik olarak sağlar, aksi takdirde kaydırma çubuğu görünmez.
+    Initial :Özelliğin varsayılan değeridir.
+    Inherit :Bu özellik, üst öğeden devralır.
+
+    */
+    height: 0;
+    /* Çizginin yükseklilğine 0 verildiğinde yanlara doğru inen çi<giler kaybolur. Çünkü biz aslında çizgi
+    içine padding verdikten sonra yan ve allt tarafları silip yalnızca top'ta yer alan kısmı kullandık.
+    Bu nedenle yanlarda bir iz gibi olan kısmın görünmemesi için çizgi boyu 0 olarak ayarlanmalıdır.*/
+}
+
+.star-light::after {
+    content: "\2605";
+    color: #fff;
+    font-weight: 900;
+    font-size: 3.2rem;
+    position: relative;
+    /* Bir nesneye position:relative; dediğimizde nesne gene normal akış içerisinde olmaya devam eder 
+    ancak top, right, bottom ve left özelliklerini kullanma fırsatı verir.
+    
+    Örn. #second div' ine verdiğimiz position:relative; özelliğinden dolayı top:50px; kullanımını yapabildik 
+    ve nesne yukarıdan yani olduğu konumdan itibaren 50px aşağıya iner. Ancak sonrasında gelen elemanları aşağıya 
+    itmediğine ve mevcut konumundan itibaren 50px aşağıya indiğine dikkat ediniz. */
+
+    top: -28px;
+    padding: 0 8px;
+    background-color: #1ABC9B;
+    /* Yıldız simgesine backround verildiğinde ve bu sayfanın backround u ile aynı olduğunda yıldız ve
+    her iki yanına uzanan çizgi görünümü sağlanmış olur. Çizgi yapıp yanına yıldız ve sonra tekrar çizgi
+    eklemek 
+    gibi bir şey yapılmasına gerek yok.*/
+}
+
+.star-dark::after {
+    content: "\2605";
+    color: #2d3d4f;
+    font-weight: 900;
+    font-size: 3.2rem;
+    position: relative;
+    top: -28px;
+    padding: 0 8px;
+    background-color: #fff;
+}
+
+/* PORTFOLIO */
+
+#portfolio {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    text-align: center;
+}
+
+#portfolio h2 {
+    color: #2d3d4f;
+    font-size: 4.8rem;
+}
+
+.img-fluid-portfolio {
+    max-width: 100%;
+    height: auto;
+}
+
+.portfolio-item {
+    position: relative;
+}
+
+.portfolio-item img {
+    display: block;
+    border-radius: 13px;
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1ABC9B;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.img-overlay .icon {
+    color: #fff;
+    font-size: 10rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.portfolio-item:hover .img-overlay {
+    opacity: 0.7;
+    border-radius: 13px;
+}
+
+/* ABOUT */
+
+#about {
+    background-color: #1abc9b;
+    color: #fff;
+}
+
+#about h2 {
+    font-size: 4.8rem;
+}
+
+#about-text {
+    text-align: left;
+}
+
+#about-text .left {
+    float: none;
+    width: 100%;
+    padding-right: 5px;
+    padding-left: 25px;
+}
+
+#about-text .right {
+    float: none;
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 5px;
+}
+
+#about-text .text {
+    font-size: 2rem;
+}
+
+@media (min-width:992px) {
+    #about-text .left {
+        float: left;
+        width: 50%;
+        padding-right: 10px;
+        padding-left: 210px;
+    }
+}
+
+@media (min-width:992px) {
+    #about-text .right {
+        float: right;
+        width: 50%;
+        padding-right: 210px;
+        padding-left: 10px;
+    }
+}
+
+/* Uygulamada, sağ ve sol paragraflar için ayrı divler oluşturuldu.
+Ama ben daha kolay olsun diye "column-count kullanarak tek bir div 
+içinnde yer alan texte sütun ekledim.
+
+-- > p.text{
+    column-count: 2;
+    text-align: left;
+    display: inline-block;
+    padding-left: 23rem;
+    padding-right: 20rem;    
+    padding-top: 2rem;
+}
+
+< --
+
+Add: ama sütun olarak düzenlediğimde sayfayı küülttüğümde "About" 
+yazsını ortalamıyor. O yüzden sağ ve sol olmak üzere iki sütun div i 
+ekleyeceğim. Ayrıca bir bakarım sütunla nasıl ortalarım diye.
+
+Add: Sağ sol olarak iki div yapınca da benzer şekilde bir görüntüleme
+oluyor. Benim sütun ekleme fikrim daha iyi çalışıyor bence.*/
+
+/* CONTACT */
+
+#contact h2 {
+    font-size: 4.8rem;
+    color: #2c3e50;
+}
+
+#contact-form {
+    width: 70%;
+    margin: 0% auto;
+    text-align: left;
+}
+
+.form-group {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 3rem;
+    margin-bottom: 4rem;
+}
+
+.form-group input,
+.form-group textarea {
+    border: none;
+    width: 100%;
+    display: block;
+    font-size: 2.4rem;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.form-group textarea:focus {
+    outline: 0;
+}
+
+.form-group input:focus {
+    outline: 0;
+}
+
+/* Formlara veri girişi yapmak içn mause alana geldiğinde veri giriiş
+alanının sınırlarını gösterek çizgilerin kaldırılması için
+hover gibi focus değerine 0 vererek bunların görünmelerini engelleidik. */
+
+/* FOOTER */
+
+footer {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    color: #fff;
+    background-color: #2c3e4f;
+    text-align: center;
+}
+
+footer h4 {
+    font-size: 2.4rem;
+}
+
+footer p {
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+footer li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.copyright {
+    color: #fff;
+    background-color: black;
+    text-align: center;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+}
